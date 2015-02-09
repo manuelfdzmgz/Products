@@ -46,7 +46,17 @@ public class StockManager
      */
     public Product findProduct(int id)
     {
-        return null;
+        Product valorID = null;
+        int cont=0;
+        while(cont<= id)
+        {
+            if (stock.getID() == id)    
+            {
+                valorID= product.getID();
+            }
+            cont++;
+        }
+        return valorID;
     }
     
     /**
@@ -71,4 +81,6 @@ public class StockManager
             System.out.println(product.toString());
         }
     }
+   
+    
 }
