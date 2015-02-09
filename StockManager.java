@@ -38,6 +38,18 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
+        boolean found = false;
+        Product productTemp =  null;
+        Iterator<Product>iterador = stock.iterator();
+        while( iterador.hasNext() && !found)
+        {
+            productTemp= iterador.next();
+            if (id == productTemp.getID())
+            {
+                found=true;
+                productTemp.increaseQuantity(amount);
+            }
+        }
     }
 
     /**
@@ -89,6 +101,7 @@ public class StockManager
         return (productFound.getQuantity());
 
     }
+
     /**
      * Print details of all the products.
      */
