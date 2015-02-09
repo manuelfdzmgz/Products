@@ -73,9 +73,22 @@ public class StockManager
      */
     public int numberInStock(int id)
     {
-        return 0;
-    }
+        boolean found = false;
+        Product productFound = null;
+        Product productTemp =  null;
+        Iterator<Product>iterador = stock.iterator();
+        while( iterador.hasNext() && !found)
+        {
+            productTemp= iterador.next();
+            if (id == productTemp.getID())
+            {
+                found=true;
+                productFound=productTemp;
+            }
+        }
+        return (productFound.getQuantity());
 
+    }
     /**
      * Print details of all the products.
      */
